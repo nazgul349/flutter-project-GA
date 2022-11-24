@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "193120663488",
+    "firebase_url": "https://iotproject-c950c-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "iotproject-c950c",
+    "storage_bucket": "iotproject-c950c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193120663488:android:716bfe2c36c5971e3f3a25",
+        "android_client_info": {
+          "package_name": "com.gas.upb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "193120663488-92sspr255576jf2egn24jcvaj6e0jckf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gas.upb",
+            "certificate_hash": "3d617c6b4e5a48faeb96be9a918f6dc0a4a9670c"
+          }
+        },
+        {
+          "client_id": "193120663488-j2oi17b07q0bpg56kpnl4q34i23i4dp1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMCIcA_T7RqOT2BWzQFrIUX8UPP2fHHQg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "193120663488-j2oi17b07q0bpg56kpnl4q34i23i4dp1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
