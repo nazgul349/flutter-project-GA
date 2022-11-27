@@ -10,10 +10,11 @@ class AuthScreen extends StatefulWidget {
 
 class _AuthScreenState extends State<AuthScreen> {
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+  final RegExp emailRegex = RegExp(r"[a-z0-9\._-]+@[a-z0-9\._-]+\.[a-z]+");
   bool _isSecret = true;
   String _email = "";
-  @override
 
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -53,8 +54,17 @@ class _AuthScreenState extends State<AuthScreen> {
                       ),
                       TextFormField(
                         onChanged: ((value) => setState(() {
-                          _email = value ;
-                        })),
+                              _email = value;
+                            })),
+                        //validator: (value) => value.isEmpty || !emailRegex.hasMatch(value) ? 'Please enter a valid email' : null,
+                        validator: (String? value) {
+                          if (value != null && value.isEmpty ||
+                              value != null && !emailRegex.hasMatch(value)) {
+                            return "Please enter a valid email";
+                          }
+
+                          return null;
+                        },
                         decoration: InputDecoration(
                           hintText: 'Ex: johndoe@gmail.com',
                           border: OutlineInputBorder(
@@ -109,11 +119,17 @@ class _AuthScreenState extends State<AuthScreen> {
                         style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(vertical: 15.0),
                         ),
-                        onPressed: (() => widget.onChangedStep(2, _email)),
+                        //onPressed: (() => widget.onChangedStep(2, _email)),
+                                                onPressed: !emailRegex.hasMatch(_email) 
+                        ? null
+                        :() {
+                          if (_formkey.currentState!.validate()) {
+                            widget.onChangedStep(2, _email);
+                          }
+                        },
                         child: Text('login'.toUpperCase()),
                       ),
                       const SizedBox(height: 15.0),
-
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(vertical: 15.0),
